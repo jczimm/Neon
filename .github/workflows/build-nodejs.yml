@@ -18,9 +18,7 @@ jobs:
 
     steps:
     - name: Install wine
-      run: |
-        sudo apt-get update
-        sudo apt-get install wine64
+      run: sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32
     - name: Checkout code
       uses: actions/checkout@master
     - name: Use Node.js ${{ matrix.node-version }}
