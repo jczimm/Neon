@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - name: Install wine
-      run: sudo apt-get install --install-recommends winehq-stable
+      run: sudo apt install wine64
     - name: Checkout code
       uses: actions/checkout@master
     - name: Use Node.js ${{ matrix.node-version }}
