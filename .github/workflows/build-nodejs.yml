@@ -18,14 +18,16 @@ jobs:
 
     steps:
     - name: Install wine
-      run: sudo apt install wine64
+      run: |
+        sudo apt-get update
+        sudo apt-get install wine64
     - name: Checkout code
       uses: actions/checkout@master
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@master
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: npm install, build for windows #, and test
       run: |
         npm install
         npm run electron:windows
