@@ -1,4 +1,4 @@
-name: Build and Release
+name: Build and Upload
 
 on: [push]
 # on:
@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [10.x]
 
     steps:
     - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        npm ci
+        npm install
         npm run electron:windows
         npm test
       env:
